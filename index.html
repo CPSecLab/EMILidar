@@ -1,0 +1,903 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+
+<head>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <!-- Custom styles for this template -->
+        
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- <link rel="icon" href="img/lightcommands.png"> -->
+</head>
+<style type="text/css">
+    body {
+        font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        font-size: 17px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+
+    h1 {
+        font-weight: 300;
+        line-height: 1.15em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    a:link, a:visited {
+        color: #00aeff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #208799;
+    }
+
+
+    b:link, b:visited {
+        color: #00aeff;
+        text-decoration: none;
+    }
+
+    b:hover {
+        color: #208799;
+    }
+
+    h1, h2, h3 {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 40px;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-weight: 400;
+        margin: 16px 0px 4px 0px;
+    }
+
+    .paper-title {
+        padding: 16px 0px 16px 0px;
+    }
+
+    section {
+        margin: 32px 0px 32px 0px;
+        text-align: justify;
+        clear: both;
+    }
+
+    .col-5 {
+        width: 20%;
+        float: left;
+    }
+
+    .col-4 {
+        width: 25%;
+        float: left;
+    }
+
+    .col-3 {
+        width: 33%;
+        float: left;
+    }
+
+    .col-2 {
+        width: 50%;
+        float: left;
+    }
+
+    .col-1 {
+        width: 100%;
+        float: left;
+    }
+
+    .row, .author-row, .affil-row {
+        overflow: auto;
+    }
+
+    .author-row, .affil-row {
+        font-size: 26px;
+    }
+
+    .row {
+        margin: 16px 0px 16px 0px;
+    }
+
+    .authors {
+        font-size: 26px;
+    }
+
+    .affil-row {
+        margin-top: 16px;
+    }
+
+    .teaser {
+        max-width: 100%;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .screenshot {
+        width: 80%;
+        border: 1px solid #ddd;
+    }
+
+    .screenshot-el {
+        margin-bottom: 1px;
+    }
+
+    hr {
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 0;
+    }
+
+    .material-icons {
+        vertical-align: -6px;
+    }
+
+    p {
+        line-height: 1.25em;
+    }
+
+    .caption {
+        font-size: 16px;
+        /*font-style: italic;*/
+        color: #666;
+        text-align: center;
+        margin-top: 4px;
+        margin-bottom: 10px;
+    }
+
+    video {
+        display: block;
+        margin: auto;
+    }
+
+    figure {
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #bibtex pre {
+        font-size: 13.5px;
+        background-color: #eee;
+        padding: 16px;
+    }
+
+    .blue {
+        color: #2c82c9;
+        font-weight: bold;
+    }
+
+    .orange {
+        color: #d35400;
+        font-weight: bold;
+    }
+
+    .flex-row {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .table {
+	width:100%;
+	border:1px solid color-form-highlight;
+    }
+    
+    .table-header {
+    	display:flex;
+    	width:100%;
+    	background:rgb(32, 126, 181);
+    	padding:(half-spacing-unit * 1.5) 0;
+    }
+    
+    .table-row {
+    	display:flex;
+    	width:100%;
+    	padding:(half-spacing-unit * 1.5) 0;
+    
+    }
+    
+    .table-data, .header__item {
+    	flex: 1 1 20%;
+    	text-align:center;
+    }
+
+    .line{
+        border-left-width: 1px;
+        border-left-style: solid;
+        border-left-color: rgb(92, 84, 84);
+    }
+
+    .stack{
+        display: block !important;
+        width: auto;
+    }
+    
+    .header__item {
+    	text-transform:uppercase;
+    }
+
+    .paper-btn {
+        position: relative;
+        text-align: center;
+
+        display: inline-block;
+        margin: 8px;
+        padding: 8px 8px;
+
+        border-width: 0;
+        outline: none;
+        border-radius: 2px;
+
+        background-color: #48b64e;
+        color: white !important;
+        font-size: 20px;
+        width: 100px;
+        font-weight: 600;
+    }
+
+    .paper-btn-parent {
+        display: flex;
+        justify-content: center;
+        margin: 16px 0px;
+    }
+
+    .paper-btn:hover {
+        opacity: 0.85;
+    }
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .boxed {
+				padding: 0.5em 2em 2em 2em;
+				background-color: #F8F8F8;
+	
+				max-width: 90%;
+				margin: 0 auto !important; 
+				float: none !important; ;
+	}
+	.boxed_mini {
+				padding: 0.5em 0.5em 0.5em 0.5em;
+				max-width: 40%;
+				background-color: #ECF9FF;
+				
+	}
+
+    .venue {
+        /*color: #B6486F;*/
+        font-size: 30px;
+
+    }
+
+    .myButton_l {
+				display:inline-block;
+				cursor:pointer;
+				font-family: Montserrat,sans-serif;
+				font-weight: bold;
+				font-size:15px;
+				letter-spacing: 0.1em;
+				padding:10px 10px;
+				text-decoration:none;
+			}
+	.myButton {
+				 background-color:#87d4f5;
+				-moz-border-radius:18px;
+				-webkit-border-radius:18px;
+				border-radius:18px;
+				display:inline-block;
+				cursor:pointer;
+				color:#ffffff;
+				font-family: Montserrat,sans-serif;
+				font-weight: bold;
+				font-size:25px;
+				letter-spacing: 0.1em;
+				padding:10px 50px;
+				text-decoration:none;
+			}
+	.myButton:hover {
+				background-color:#478fcc;
+				color:#ffffff;
+				
+			} 
+
+</style>
+
+<!-- End : Google Analytics Code-->
+<script type="text/javascript" src="../js/hidebib.js"></script>
+<!-- <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic'
+      rel='stylesheet' type='text/css'> -->
+<head>
+    <title>EMI-LiDAR: Uncovering Vulnerabilities of LiDAR Sensors in Autonomous Driving Setting using Electromagnetic Interference</title>
+    <meta property="og:description" content="EMI-LiDAR: Uncovering Vulnerabilities of LiDAR Sensors in Autonomous Driving Setting using Electromagnetic Interference"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="flex-row">
+    <div class="paper-title">
+        <h1 style="color:rgb(71, 132, 216)"><strong>EMI-LiDAR: Uncovering Vulnerabilities of LiDAR Sensors in Autonomous Driving Setting using Electromagnetic Interference</strong></h1>
+    </div>
+
+    <div id="authors">
+        <center>
+            <div class="author-row">
+                <div class="col-3 text-center"><span style="font-size:25px">S. Hrushikesh Bhupathiraju</span><sup>1</sup></div>
+                <div class="col-3 text-center"><span style="font-size:25px">Jennifer Sheldon</span><sup>1</sup></div>
+                <div class="col-3 text-center"><span style="font-size:25px">Luke A. Bauer</span><sup>1</sup></div>
+                <div class="col-3 text-center"><span style="font-size:25px">Vincent Bindschaedler</span><sup>1</sup></div>
+                <div class="col-3 text-center"><span style="font-size:25px">Takeshi Sugawara</span><sup>2</sup></div>
+                <div class="col-3 text-center"><span style="font-size:25px">Sara Rampazzi</span><sup>1</sup></div>
+            </div>
+            <br>
+            <div class="text-left mt-auto" style="width:100%;margin-top: 1.5em; margin-bottom: 1.5em; display:flex;justify-content:space-around;align-items:center; flex-wrap: wrap;">
+                <div>
+                <a href="https://www.eng.ufl.edu/">
+                  <img width = "320px" src="img/uflogo.PNG" alt="University of Florida logo" class="img-fluid" />
+              <div style = "height:10px"></div>
+                </a>
+                </div>
+                <a href="https://www.uec.ac.jp/eng/">
+                  <img width="350px" src="img/uec_logo.png" alt="UEC logo" class="img-fluid" />
+                  <div style = "height:10px"></div>
+            </a>
+            </div>
+                </div>
+            <!-- <center>
+                <br><br>
+                <table align=center width=800px>
+                    <tr>
+                        <td align=center width=300px>
+                            <center>
+                                <span style="font-size:15px"><sup>1</sup> University of Florida</span>
+                            </center>
+
+                        </td>
+                        <td align=center width=300px>
+                            <center>
+                                <span style="font-size:15px"><sup>2</sup> University of Michigan</span>
+                            </center>
+                        </td>
+                        <td align=center width=300px>
+                            <center>
+                                <span style="font-size:15px"><sup>3</sup> The University of Electro-Communications (Tokyo)</span>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+
+        </center> -->
+        
+    </div>
+
+    <section id="abstract"/>
+    <h2> EMI Vulnerability Overview</h2>
+    <hr>
+    <div class="flex-row">
+        <p>
+            <br>
+            Autonomous Vehicles (AVs) using LiDAR-based object detection systems are rapidly improving and becoming an increasingly viable method of transportation. While effective at perceiving the surrounding environment,  these detection systems are shown to be vulnerable to attacks using lasers which can cause obstacle misclassifications or removal. These laser attacks, however, are challenging to perform, requiring precise aiming and accuracy. Our research exposes a new threat in the form of Intentional Electro-Magnetic-Interference (IEMI), which affects the time-of-flight (TOF) circuits that make up modern LiDARs.
+        </p>
+    </div>
+
+    <figure style="margin-top: 10px; margin-bottom: 10px;">
+        <center><img width="100%" src="./img/emi_overview.png" style="margin-bottom: 20px;"></center>
+    </figure>
+    <div class="flex-row">
+        <p>
+             We show that these vulnerabilities can be exploited to force the AV Perception system to misdetect, misclassify objects, and perceive non-existent obstacles. We evaluate the vulnerability in three AV perception modules (PointPillars, PointRCNN, and Apollo) and show how the classification rate drops below 50\%. We also analyze the impact of the IEMI injection on two fusion models (AVOD and Frustum-ConvNet) and in real-world scenarios. Finally, we discuss potential countermeasures and propose two strategies to detect signal injection.   </p>
+    </div>
+    <p class="my-4">To appear in <a href="https://wisec2023.surrey.ac.uk/">ACM WiSec 2023<br><br></a></p>
+				
+						<center>			
+						<a href="" class="myButton">Read the Paper</a>
+						
+			
+			
+						<a href="#bibtex"  class=" myButton " data-toggle="collapse" role="button"><span class="material-icons"> insert_comment </span>
+					Cite <i class="fa fa-quote-right" aria-hidden="true"></i></a>
+						<div id="bibtex" style="margin-top: 1.5em;" class="collapse" align="left">
+							<pre style="white-space: pre">
+
+@inproceedings{bhupathiraju2023emiLiDAR,
+  title={EMI-LiDAR: Uncovering Vulnerabilities of LiDAR Sensors in Autonomous Driving Setting using Electromagnetic Interference},
+  author={Sri Hrushikesh Varma Bhupathiraju, Jennifer Sheldon, Luke A. Bauer, Vincent Bindschaedler, Takeshi Sugawara, Sara Rampazzi},
+  booktitle={16th ACM Conference on Security and Privacy in Wireless and Mobile Networks (ACM WiSec 2023)},
+  year={2023}
+}
+</center>
+							</pre>
+						
+				</div>	
+    </section>
+
+    <section id="novelties"/>
+    <h2>IEMI Vulnerability Characterization</h2>
+    <hr>
+    <div class="flex-row">
+        <p>
+            <br>
+            To determine whether the VLP-16 LiDAR is vulnerable to IEMI, we perform a frequency sweep between 400 MHz and 1 GHz. We found that different frequencies produced different perturbation patterns. We hypothesize that the vulnerability is caused by IEMI-induced voltages surpassing detection thresholds in the LiDAR's ToF circuits.
+        </p>
+    </div>
+	
+	<div class="col-3 text-center"> <figure style="width: 100%">
+        <center><img width="100%" src="vid/NoAttackGif.gif"></center>
+		<div class="overlayText">
+                <br>
+                <p id="topText"><font size="-1">A Veloview display of an object in an isolated outdoor setting.</font></p>
+            </div>
+       
+    </figure>
+    </div>
+    <div class="col-3 text-center"> <figure style="width: 100%">
+        <center><img width="100%" src="vid/SineGif.gif"></center>
+        <div class="overlayText">
+                <br>
+                <p id="topText"><font size="-1">A Veloview display of an object in an isolated outdoor setting with the IEMI injection frequency corresponding to sinusoidal perturbation.</font></p>
+            </div>
+       
+    </figure>
+    </div>
+        <div class="col-3 text-center"> <figure style="width: 100%">
+        <center><img style="padding-top: 0%" width="100%" src="vid/RandGif.gif"></center>
+        <div class="overlayText">
+                <br>
+                <p id="topText"><font size="-1">A Veloview display of an object in an isolated outdoor setting with the IEMI injection frequency corresponding to random perturbation.</font></p>
+            </div>
+       
+    </figure>
+    </div>
+        <br>
+		<br>
+	
+	
+    </section>
+
+    <section id="outdoor"/>
+	
+		<br>
+    <h2>Adversarial Capability and Modeling</h2>
+    <hr>
+    <div class="flex-row">
+        <p>
+            <br>
+            To perform experiments for evaluation of the attacker's capabilities and synthesize perturbations, we use the following equipment: <br>
+            &emsp;• LiDAR model: <strong><a href="https://velodynelidar.com/products/puck/">VLP-16</a></strong> <br>
+			&emsp;• Point Cloud visualizer: Veloview <br>
+            We characterize the attacker capability using the parameters described in the table below: 
+        </p>
+                   <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/AdversaryParameterTable.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1">A table of parameters used to characterize the capabilities of our adversary.</font></p>
+            </center>
+            </div>
+       
+    </figure>
+            </figure>
+            <br>
+        <div class="flex-row">
+            <br>
+            <br>
+            We found that the point cloud can be detectably perturbed above 1 m in the XY direction, but that the perturbation is less pronounced in the XZ direction:
+            <div class="col-2 text-center"> <figure style="width: 100%">
+        <center><img width="90%" src="img/SNRXY.png"></center>
+        <div class="overlayText">
+                <br>
+                <p id="topText"><font size="-1">SNR vs distance between victim LiDAR and adversary in the XY plane.</font></p>
+            </div>
+       
+    </figure>
+    </div>
+    <div class="col-2 text-center"> <figure style="width: 100%">
+        <center><img width="90%" src="img/SNRXZ.png"></center>
+        <div class="overlayText">
+                <br>
+                <p id="topText"><font size="-1">SNR vs distance between victim LiDAR and adversary in the XZ plane.</font></p>
+            </div>
+       
+    </figure>
+    </div>
+
+            We found that the wavelength of the sinusoidal perturbation in both the XY and XZ planes are linearly related with the distance between the victim LiDAR and the target obstacle:
+            <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/XYtargetDistance.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1">Sinusoidal pattern characterization wavelength with respect to 𝑑<sub>O</sub> in the XY plane</font></p>
+            </center>
+            </div>
+    </figure>
+             <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/XZtargetDistance.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1">Sinusoidal pattern characterization wavelength with respect to 𝑑<sub>𝑂</sub> in the XZ plane</font></p>
+            </center>
+            </div>
+    </figure>
+    <br>
+    Furthermore, we found that the minimum affected angle was approximately 3 degrees and that the injected frequency affects the perturbation pattern. We also found that the mean displacement of the random perturbation and amplitude of the sinusiodal perturbation are linearly associated with the gain (associated with IEMI output power):
+
+    <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/DisplacementAmplitude.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1">The effect of gain on the mean displacement for the random perturbation and the amplitude for the sinusiodal perturbation.</font></p>
+            </center>
+            </div>
+       
+    </figure>
+    Based on the observed trends, we modeled the sinusoidal perturbation's amplitude and the random perturbation's mean displacement, maximum displacement, and minimum displacement in terms of gain. We model the sinusoidal perturbation wavelength in terms of distance between the victim LiDAR and the target obstacle.
+        </div>
+        
+    </div>
+
+        <!-- <div class="flex-row"> -->
+            <!-- <div style="width: 50%; box-sizing: border-box; padding: 10px; margin: auto;"> -->
+                
+            <!-- </div> -->
+     
+<!--  -->
+        <!-- </div> -->
+        <!-- </div> -->
+
+
+
+</section>
+
+<section id="Evaluations"/>
+<br>
+<h2>Evaluations</h2>
+<hr>
+<div class="flex-row">
+    <p>
+        <br>
+        We model perturbations using the empirically observed listed in the previous section. We then synthesize perturbations in the KITTI evaluation dataset to evaluate how perturbations affect PointRCNN and PointPillars. The previous experiments are limited at 25 dB gain due to safety concerns, so we extrapolate the effects of higher gain values. 
+
+        <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/synthesized_ptCloud.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1">Illustration of a point cloud with no attack (left) with the corresponding random (middle) and sine (right) synthesized perturbations.
+</font></p>
+            </center>
+            </div>
+       
+    </figure>
+
+
+
+
+        
+<h3 class="card-subhead">Object Misdetection and Misclassification</h3>
+<div class="flex-row">
+    We consider the object detection of an individual object successful if the corresponding prediction has an Intersection over Union (IOU) greater than the desired threshold with respect to the ground truth. Similarly, we consider object classification successful if the detected object is classified as the correct object class. We perform two different analyses based on the IOU threshold. In the first analysis, we set the IOU threshold to 0 (WIOU). Here, if the predicted object has an IOU with respect to the ground truth greater than 0, we consider it a successful prediction. In the second analysis, we evaluate based on the default IOU thresholds as proposed in the corresponding works of each model (DIOU). The table below shows object detection and classification results for PointPillars and PointRCNN models for WIOU and DIOU analyses. 
+        <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/ODRCLR70dB.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1">ODR and CLR of LiDAR-based models on WIOU and DIOU for sinusoidal and random perturbations at 70dB gain.</font></p>
+            </center>
+            </div>
+       
+    </figure>
+</div>
+        <br>
+	
+		<div class="flex-row">
+		
+    <p>
+	<br>
+	<br>
+      PointPillars drops at least 20% in ODR and 30% in CLR for cyclist and pedestrian object classes. Car object class shows only an 11% drop of ODR and CLR in WIOU analysis and a 19% drop in DIOU analysis. PointRCNN shows a 19%, 13%, and 1% drop in pedestrian, cyclist, and car objects classes, respectively. PointRCNN shows a poor performance in DIOU analysis relative to PointPillars, and the ODR and CLR are further depleted with IEMI perturbations. We believe that the robustness of the car obstacles against the IEMI perturbations corresponds to its geometrical structure and the significantly larger size of the obstacle compared to pedestrian and cyclist objects. We study the effect of the perturbation angle 𝜃 on ODR for
+both models. The ODR drops by 32%, 51%, and 31% in pedestrian,
+cyclist, and car object detection for PointPillars in DIOU analysis.
+For PointRCNN, we observe an ODR drop of 26%, 25%, and 59%
+in pedestrian, cyclist, and car, respectively, in DIOU analysis. The
+results visualized in the figures below indicate that increasing 𝜃 beyond
+the span of the target obstacle does not decrease ODR further.
+(a) and (b) in the the first figure show a sudden drop in the ODR with 3◦,
+indicating that even small perturbation angles can significantly
+impact the model’s object detection.
+		<br>
+        <br>
+        The above table also shows the ODR and CLR
+results of Apollo segmentation with sinusoidal and random per-
+turbations. The DIOU analysis shows a drop in ODR to less than
+5% in pedestrian and cyclist obstacle classes and 30% in car obsta-
+cle classes. The WIOU shows a maximum drop of 16%. The CLR
+rate, however, drops below 30% for all the obstacle classes. The re-
+sults demonstrate that the ODR of the segmentation model declines
+gradually with increasing 𝜃 , unlike PointPillars and PointRCNN,
+as shown in the figures below. While ODR for car, cyclist, and pedestrian
+obstacle classes drop to a minimum of 67%, 58%, and 62% in gain
+analysis, the ODR for the same classes drops to 39%, 19%, and 16%,
+respectively at 40<sup>◦</sup> perturbation angle. Object detection models
+extract features from local sub-parts of the point cloud individually.
+Segmentation models, on the other hand, annotate the scene point
+by point, giving more granular information about the scene. We hy-
+pothesize that this makes the segmentation model more susceptible
+to our EMI perturbations in the region around the target obstacle.
+    </p>
+       <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/detectionPedestrian.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+               <!--  <p id="topText"><font size="-1">ODR and CLR of LiDAR-based models on WIOU and DIOU for sinusoidal and random perturbations at 70dB gain.</font></p> -->
+            </center>
+            </div>
+       
+    </figure>
+    <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/detectionCyclist.png"></center>
+        <div class="overlayText">
+                <br>
+                <!-- <center>
+                <p id="topText"><font size="-1">ODR and CLR of LiDAR-based models on WIOU and DIOU for sinusoidal and random perturbations at 70dB gain.</font></p>
+            </center> -->
+            </div>
+       
+    </figure>
+    <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/detectionCar.png"></center>
+        <div class="overlayText">
+                <br>
+                <!-- <center>
+                <p id="topText"><font size="-1">ODR and CLR of LiDAR-based models on WIOU and DIOU for sinusoidal and random perturbations at 70dB gain.</font></p>
+            </center> -->
+            </div>
+       
+    </figure>
+</div>
+</div>
+<h3 class="card-subhead">Object Creation Evaluation</h3>
+<div class="flex-row">
+    <p>
+	<br>
+        We observe that the perturbations induce False Positives (FP) in the object detection results. To measure the effect, we synthesize both sinusoidal and random perturbations in the entire front view of the point cloud (80◦) at 70 dB gain over the validation set of the KITTI dataset (3769 scenes). We then evaluate the number of fake obstacles induced by the perturbations in the form of FPs and report the recall and precision values of the model with the IEMI perturbations. We observe that the sinusoidal
+perturbations induce 8.76 FPs per frame and 7.95 FPs per sample
+over the validation set of the KITTI dataset for PointPillars. For
+PointRCNN, the perturbations induce 4.77 and 4.97 FPs per sam-
+ple. As a result, the precision (resp. recall) of PointRCNN over
+the entire KITTI validation set drops from 0.33 (resp. 0.35) to 0.32
+(resp. 0.30) for random perturbations and to 0.23 (resp. 0.15) for
+sinusoidal perturbations. For Pointpillars, on the other hand, the
+precision drops from 0.447 to 0.444 and 0.408 for random and si-
+nusoidal perturbations, respectively. Meanwhile, the recall drops
+from 0.776 to 0.753 and 0.719 for random and sinusoidal pertur-
+bations, respectively. Note that both models exhibit low precision
+even without any perturbations. Although the perturbation creates
+fake obstacles, precision drops only by a small amount because the
+fake obstacles do not correlate with the false positives perceived in
+the no perturbation case. <br>
+    </p>
+<!--     <div class="col-2 text-center"><video  width="100%" height="100%" controls="controls"/>
+        <source src="vid/sbs_final40.mp4" type="video/mp4"></video>
+    </div>
+    <div class="col-2 text-center" style="padding-top: 3%">
+        <figure style="width: 100%">
+            <br>
+            <img width="75%" height="90%" src="img/moving_target_car_4.PNG">
+        </figure>
+    </div>
+</div>
+    <center>
+        <p>
+            <br>
+            <font size="-1">The above video (left) shows the tracking systems camera view and the corresponding point cloud generated during the attack. The images (right) show the top-view location of the car and obstacle before and after the attack start.</font>
+        </p>
+    </center>
+    <div class="flex-row">
+        <p>
+            <br>
+            Though it is more challenging to attack a moving car with variable speed, we demonstrate that PRA achieves 92.7% success rate for removing over 90% of the target traffic cone (83.6% success rate for removing all the cloud points). The point cloud traces of the experiment are available <strong><a href="https://osf.io/kuhra?view_only=None">here</a></strong> (PCAP format).
+        </p>
+    </div> -->
+
+</section>
+
+<section id="fusion"/>
+<h2>Sensor Fusion</h2>
+<hr>
+<div class="flex-row">
+    <p>
+        <br>
+        For this analysis we randomly select 500 objects
+for each of the cyclist, pedestrian, and car classes from the validation
+set of the KITTI dataset. We synthesize perturbations on the LiDAR
+point cloud as discussed in Section 4.3. Similar to the synthesized
+evaluation in Section 5.1, we set 𝜃 to be the horizontal span of the
+target object and synthesize the perturbations for each individual
+object corresponding to a 70 dB signal gain. We do not in any way
+perturb or alter the input images to the fusion models.
+<br>
+       We consider ODR and CLR as a metric to
+evaluate the effect of perturbations on sensor fusion models. Here,
+we consider the default IOU thresholds for each model (0.7 for car
+and 0.5 for pedestrian and cyclist obstacles for both models).
+
+<br>
+
+The figure below shows the classification rates
+for the two sensor fusion models when injecting the sinusoidal and
+random perturbations for pedestrian, cyclist, and car classes. The
+perturbations drop the ODR below 50% for pedestrian and cyclist
+object classes in AVOD and for pedestrian and cyclist object classes
+in Frustum-ConvNet. The ODR for car object class in AVOD and
+cyclist object class in Frustum-ConvNet show instead robustness
+against the perturbations.
+The CLR for both the models follows a similar trend as ODR
+with a drop below 50% for pedestrian and for cyclist in AVOD. No other scenarios in Frustum-ConvNet show misclassifications,
+indicating that the CLR remains the same as ODR. This happens
+because the region proposals for object detection in the model come
+from camera image data that is not perturbed by our injection. Our
+results show a significant deterioration of the model performance on
+pedestrian and cyclist obstacle classes in AVOD and pedestrian and
+car obstacles in Frustum-ConvNet. Furthermore, the perturbation
+signal generates new obstacles in the sensor fusion models. For
+AVOD, the precision drops by a maximum of 0.43 to 0.33, and the
+recall drops from 0.56 to 0.45. For Frustum-ConvNet, the precision
+drops from 0.69 to 0.52 while the recall from 0.46 to 0.32.
+
+       <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/fusion_results.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1"> Object Detection Rates for AVOD (left) and Frustum-
+ConvNet (right). Results for 500 random samples per object
+class with synthesized perturbations at 70 dB gain.</font></p>
+            </center>
+            </div>
+       
+    </figure>
+    </p>
+</div>
+<br>
+<br>
+<div class="flex-row">
+    <p>
+        <br>
+		The simulation show that our removal attack, can lead to severe consequences and endanger the victim AV. Though the obstacle might be perceived again after the attack begins, we observe that the AV can still collide with the obstacle.
+        In the example above, the target pedestrian appears out of the attack region at 8 m from the AV, however, the AV collide with the pedestrian at 26 km/h as it is not able to timely stop. The target car appears out of the attack region at 17 m from the AV however, the AV collide with the vehicle at 16 km/h.
+    </p>
+</div>
+<br>
+<!-- <h3 class="card-subhead">Speed variation</h3>
+<div class="flex-row">
+    <p>
+	Without the attack, the victim AV is expected to accelerate to reach the preset speed (32 km/h) at 46 meters, then uniformly decelerate and stop before reaching the obstacle.
+        In the graphs below we observe the AV's speed change at different attack start conditions for 5 and 10-degree attack angles respectively. Figures (a) and (d) show that, by starting the attack at varying distances from the target obstacle, the attacker can remove the target obstacles for different time periods (based on the size of the obstacles and the attack angles). Figures (b), (c), (e), and (f), show that, though the obstacle is only removed in a limited amount of time, it will cause the AV to accelerate and collide with the obstacles. This is because when the attack starts and the target obstacle is removed, the victim AV will accelerate to reach the preset speed. The graphs also represent the expected AV stopping position in the scenario with no attack, and the position of the obstacle (marked as AV collision).<br>
+        <br>
+    </p> -->
+</section>
+
+<section id="real-world"/>
+<h2>Real-World</h2>
+<hr>
+<div class="flex-row">
+    <p>
+        <br>
+       We further conduct a proof-of-concept experiment to analyze the
+impact of IEMI signal injection in a real-world scenario.
+<br>
+In this experiment, we inject the EMI
+signal into a Velodyne VLP-16 LiDAR with the attacker setup, as
+previously discussed. The antenna was placed at a distance of 0.5
+cm from the victim LiDAR. Since the VLP-16 LiDAR is a 16-channel
+LiDAR, the previously mentioned LiDAR-based detection models cannot
+be used, as they have been trained on the KITTI dataset, which
+contains point cloud samples collected from Velodyne HDL-64E
+(64-channel LiDAR). Hence, for the physical world evaluation, we
+use PiFiNet, an attentive pillar network-based model trained on
+the JRDB dataset for pedestrian detection. The JRDB Dataset
+is a large-scale multi-modal dataset collected from a social mobile
+manipulator JackRabbot. The dataset provides LiDAR scenes
+from two VLP-16 LiDARs with 54 scenes and 2D and 3D bound-
+ing box annotations for pedestrian objects in full 360<sup>◦</sup>.
+
+<br>
+
+We test the PiFiNet model under our IEMI injection
+with the target pedestrian obstacle at 2, 4, and 6 m away from the
+victim LiDAR in a static scenario. We observe that beyond 6 m,
+in our real-world setup, the PiFiNet model could not detect the
+target pedestrian obstacle even without any injection. This could
+be because, at far distances, the point cloud formed by VLP-16
+becomes sparse. Considering this, we only analyze near LiDAR
+detection scenarios. We manually annotate the ground truth 3D
+bounding box around the pedestrian obstacle. We increment the
+transmitted signal gain in 1 dB intervals and measure the IOU metric
+of the predicted bounding box with respect to ground truth. We
+repeat the experiment for frequencies corresponding to sinusoidal
+and random perturbations. We limit the gain to 25 dB for safety.
+
+<br>
+
+The figure below shows the results of PiFiNet
+for pedestrian object detection with EMI signal injection. We av-
+erage the IOU values of 25 VLP-16 frames for each pedestrian
+position and signal gain. The random perturbations in the LiDAR
+frame correspond to a sharp drop in IOU for smaller gain values.
+The sinusoidal perturbations lead to a gradual drop in IOU with
+increasing gain, similar to what was observed for PointPillars. We
+hypothesize this similarity is because both PointPillars and PiFiNet
+use a voxel-based method to form voxelized grids of multiple chan-
+nels. The results indicate that at a 2 m target pedestrian distance,
+the IOU of the object drops below 0.5 for only 2 and 14 dB gains in
+random and sinusoidal signal injection, respectively. The average
+IOU at a 2 m pedestrian distance drops from 0.56 to 0.37 with a
+standard deviation (STD) of 0.04 over 20 frames. For 4 m and 6 m
+pedestrian obstacle distances, the average IOU drops from 0.38 and
+0.43 to 0.22 with STD of 0.09 and 0.13. These results confirm that
+signal injection at higher gains leads to a greater IOU drop.
+We also found that the injection induces fake obstacles into real-
+world data. The sinusoidal perturbations create 5.1 FPs per frame,
+while random perturbations create 6.3 FPs per collected frame. This
+reduces the precision (resp. recall) of the model from 0.33 (resp.
+0.68) to 0.16 (resp. 0.56) for sinusoidal perturbations and to 0.13
+(resp. 0.48) for random perturbations.
+
+ <figure style="margin-top: 10px; margin-bottom: 10px;">
+            <center><img width="100%" src="img/outdoor_results_2.png"></center>
+        <div class="overlayText">
+                <br>
+                <center>
+                <p id="topText"><font size="-1">  IOU of predicted pedestrian objects from PiFiNet at
+2, 4, and 6 meters away from the VLP-16 LIDAR for sinusoidal
+(left) and random (right) perturbation injection.</font></p>
+            </center>
+            </div>
+    </p>
+</div>
+    </div>
+
+</section>
+
+
+<section id="Acknowledgments"/>
+<h2>Acknowledgments</h2>
+<hr>
+<br>
+<div class="flex-row">
+    <p>
+        This research was supported in part by the NSF CNS-1933208, CNS-2055123, and JSPS KAKENHI Grant Number 22H00519
+    </p>
+</div>
+</section>
+</body>
+</html>
