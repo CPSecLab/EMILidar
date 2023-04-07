@@ -355,16 +355,17 @@
             <br>
             <div class="text-left mt-auto" style="width:100%;margin-top: 1.5em; margin-bottom: 1.5em; display:flex;justify-content:space-around;align-items:center; flex-wrap: wrap;">
                 <div>
-                <a href="https://www.eng.ufl.edu/">
-                  <img width = "320px" src="img/uflogo.PNG" alt="University of Florida logo" class="img-fluid" />
-              <div style = "height:10px"></div>
+                    <a href="https://www.eng.ufl.edu/">
+                      <img width = "320px" src="img/uf_logo.PNG" alt="University of Florida logo" class="img-fluid" />
+                  <div style = "height:10px"></div>
+                    </a>
+                    </div>
+                    <div>
+                    <a href="https://www.uec.ac.jp/eng/">
+                      <img width="350px" src="img/uec_logo.png" alt="UEC logo" class="img-fluid" />
+                      <div style = "height:10px"></div>
                 </a>
                 </div>
-                <a href="https://www.uec.ac.jp/eng/">
-                  <img width="350px" src="img/uec_logo.png" alt="UEC logo" class="img-fluid" />
-                  <div style = "height:10px"></div>
-            </a>
-            </div>
                 </div>
             <!-- <center>
                 <br><br>
@@ -405,15 +406,15 @@
     </div>
 
     <figure style="margin-top: 10px; margin-bottom: 10px;">
-        <center><img width="100%" src="./img/emi_overview.png" style="margin-bottom: 20px;"></center>
+        <center><img width="50%" src="./img/emi_overview.png" style="margin-bottom: 20px;"></center>
     </figure>
     <div class="flex-row">
         <p>
-             We show that these vulnerabilities can be exploited to force the AV Perception system to misdetect, misclassify objects, and perceive non-existent obstacles. We evaluate the vulnerability in three AV perception modules (PointPillars, PointRCNN, and Apollo) and show how the classification rate drops below 50\%. We also analyze the impact of the IEMI injection on two fusion models (AVOD and Frustum-ConvNet) and in real-world scenarios. Finally, we discuss potential countermeasures and propose two strategies to detect signal injection.   </p>
+             We show that these vulnerabilities can be exploited to force the AV Perception system to misdetect, misclassify objects, and perceive non-existent obstacles. We evaluate the vulnerability in three AV perception modules (PointPillars, PointRCNN, and Apollo) and show how the classification rate drops below 50%. We also analyze the impact of the IEMI injection on two fusion models (AVOD and Frustum-ConvNet) and in real-world scenarios. Finally, we discuss potential countermeasures and propose two strategies to detect signal injection.   </p>
     </div>
     <p class="my-4">To appear in <a href="https://wisec2023.surrey.ac.uk/">ACM WiSec 2023<br><br></a></p>
 				
-						<center>			
+						<!-- <center>			
 						<a href="" class="myButton">Read the Paper</a>
 						
 			
@@ -429,7 +430,7 @@
   booktitle={16th ACM Conference on Security and Privacy in Wireless and Mobile Networks (ACM WiSec 2023)},
   year={2023}
 }
-</center>
+</center> -->
 							</pre>
 						
 				</div>	
@@ -492,7 +493,7 @@
             We characterize the attacker capability using the parameters described in the table below: 
         </p>
                    <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/AdversaryParameterTable.png"></center>
+            <center><img width="50%" src="img/AdversaryParameterTable.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -508,7 +509,7 @@
             <br>
             We found that the point cloud can be detectably perturbed above 1 m in the XY direction, but that the perturbation is less pronounced in the XZ direction:
             <div class="col-2 text-center"> <figure style="width: 100%">
-        <center><img width="90%" src="img/SNRXY.png"></center>
+        <center><img width="60%" src="img/SNRXY.png"></center>
         <div class="overlayText">
                 <br>
                 <p id="topText"><font size="-1">SNR vs distance between victim LiDAR and adversary in the XY plane.</font></p>
@@ -517,7 +518,7 @@
     </figure>
     </div>
     <div class="col-2 text-center"> <figure style="width: 100%">
-        <center><img width="90%" src="img/SNRXZ.png"></center>
+        <center><img width="60%" src="img/SNRXZ.png"></center>
         <div class="overlayText">
                 <br>
                 <p id="topText"><font size="-1">SNR vs distance between victim LiDAR and adversary in the XZ plane.</font></p>
@@ -528,7 +529,7 @@
 
             We found that the wavelength of the sinusoidal perturbation in both the XY and XZ planes are linearly related with the distance between the victim LiDAR and the target obstacle:
             <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/XYtargetDistance.png"></center>
+            <center><img width="50%" src="img/XYtargetDistance.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -537,7 +538,7 @@
             </div>
     </figure>
              <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/XZtargetDistance.png"></center>
+            <center><img width="50%" src="img/XZtargetDistance.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -549,7 +550,7 @@
     Furthermore, we found that the minimum affected angle was approximately 3 degrees and that the injected frequency affects the perturbation pattern. We also found that the mean displacement of the random perturbation and amplitude of the sinusiodal perturbation are linearly associated with the gain (associated with IEMI output power):
 
     <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/DisplacementAmplitude.png"></center>
+            <center><img width="70%" src="img/DisplacementAmplitude.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -586,7 +587,7 @@
         We model perturbations using the empirically observed listed in the previous section. We then synthesize perturbations in the KITTI evaluation dataset to evaluate how perturbations affect PointRCNN and PointPillars. The previous experiments are limited at 25 dB gain due to safety concerns, so we extrapolate the effects of higher gain values. 
 
         <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/synthesized_ptCloud.png"></center>
+            <center><img width="60%" src="img/synthesized_ptCloud.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -605,7 +606,7 @@
 <div class="flex-row">
     We consider the object detection of an individual object successful if the corresponding prediction has an Intersection over Union (IOU) greater than the desired threshold with respect to the ground truth. Similarly, we consider object classification successful if the detected object is classified as the correct object class. We perform two different analyses based on the IOU threshold. In the first analysis, we set the IOU threshold to 0 (WIOU). Here, if the predicted object has an IOU with respect to the ground truth greater than 0, we consider it a successful prediction. In the second analysis, we evaluate based on the default IOU thresholds as proposed in the corresponding works of each model (DIOU). The table below shows object detection and classification results for PointPillars and PointRCNN models for WIOU and DIOU analyses. 
         <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/ODRCLR70dB.png"></center>
+            <center><img width="50%" src="img/ODRCLR70dB.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -774,7 +775,7 @@ recall drops from 0.56 to 0.45. For Frustum-ConvNet, the precision
 drops from 0.69 to 0.52 while the recall from 0.46 to 0.32.
 
        <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/fusion_results.png"></center>
+            <center><img width="60%" src="img/fusion_results.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -873,7 +874,7 @@ reduces the precision (resp. recall) of the model from 0.33 (resp.
 (resp. 0.48) for random perturbations.
 
  <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="100%" src="img/outdoor_results_2.png"></center>
+            <center><img width="60%" src="img/outdoor_results_2.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
