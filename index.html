@@ -604,7 +604,7 @@
         
 <h3 class="card-subhead">Object Misdetection and Misclassification</h3>
 <div class="flex-row">
-    We consider the object detection of an individual object successful if the corresponding prediction has an Intersection over Union (IOU) greater than the desired threshold with respect to the ground truth. Similarly, we consider object classification successful if the detected object is classified as the correct object class. We perform two different analyses based on the IOU threshold. In the first analysis, we set the IOU threshold to 0 (WIOU). Here, if the predicted object has an IOU with respect to the ground truth greater than 0, we consider it a successful prediction. In the second analysis, we evaluate based on the default IOU thresholds as proposed in the corresponding works of each model (DIOU). The table below shows object detection and classification results for PointPillars and PointRCNN models for WIOU and DIOU analyses. 
+    We consider the object detection of an individual object successful if the corresponding prediction has an Intersection over Union (IOU) greater than the desired threshold with respect to the ground truth. Similarly, we consider object classification successful if the detected object is classified as the correct object class. We perform two different analyses based on the IOU threshold. In the first analysis, we set the IOU threshold to 0 (WIOU). Here, if the predicted object has an IOU with respect to the ground truth greater than 0, we consider it a successful prediction. In the second analysis, we evaluate based on the default IOU thresholds as proposed in the corresponding works of each model (DIOU). The table below shows object detection and classification results for PointPillars, PointRCNN, and Apollo models for WIOU and DIOU analyses with sinusoidal and random perturbations:
         <figure style="margin-top: 10px; margin-bottom: 10px;">
             <center><img width="50%" src="img/ODRCLR70dB.png"></center>
         <div class="overlayText">
@@ -623,35 +623,11 @@
     <p>
 	<br>
 	<br>
-      PointPillars drops at least 20% in ODR and 30% in CLR for cyclist and pedestrian object classes. Car object class shows only an 11% drop of ODR and CLR in WIOU analysis and a 19% drop in DIOU analysis. PointRCNN shows a 19%, 13%, and 1% drop in pedestrian, cyclist, and car objects classes, respectively. PointRCNN shows a poor performance in DIOU analysis relative to PointPillars, and the ODR and CLR are further depleted with IEMI perturbations. We believe that the robustness of the car obstacles against the IEMI perturbations corresponds to its geometrical structure and the significantly larger size of the obstacle compared to pedestrian and cyclist objects. We study the effect of the perturbation angle 𝜃 on ODR for
-both models. The ODR drops by 32%, 51%, and 31% in pedestrian,
-cyclist, and car object detection for PointPillars in DIOU analysis.
-For PointRCNN, we observe an ODR drop of 26%, 25%, and 59%
-in pedestrian, cyclist, and car, respectively, in DIOU analysis. The
-results visualized in the figures below indicate that increasing 𝜃 beyond
-the span of the target obstacle does not decrease ODR further.
-(a) and (b) in the the first figure show a sudden drop in the ODR with 3◦,
-indicating that even small perturbation angles can significantly
-impact the model’s object detection.
 		<br>
         <br>
-        The above table also shows the ODR and CLR
-results of Apollo segmentation with sinusoidal and random per-
-turbations. The DIOU analysis shows a drop in ODR to less than
-5% in pedestrian and cyclist obstacle classes and 30% in car obsta-
-cle classes. The WIOU shows a maximum drop of 16%. The CLR
-rate, however, drops below 30% for all the obstacle classes. The re-
-sults demonstrate that the ODR of the segmentation model declines
-gradually with increasing 𝜃 , unlike PointPillars and PointRCNN,
-as shown in the figures below. While ODR for car, cyclist, and pedestrian
-obstacle classes drop to a minimum of 67%, 58%, and 62% in gain
-analysis, the ODR for the same classes drops to 39%, 19%, and 16%,
-respectively at 40<sup>◦</sup> perturbation angle. Object detection models
-extract features from local sub-parts of the point cloud individually.
-Segmentation models, on the other hand, annotate the scene point
-by point, giving more granular information about the scene. We hy-
-pothesize that this makes the segmentation model more susceptible
-to our EMI perturbations in the region around the target obstacle.
+        
+We also study the effect of the perturbation angle 𝜃 on ODR for
+the models:
     </p>
        <figure style="margin-top: 10px; margin-bottom: 10px;">
             <center><img width="100%" src="img/detectionPedestrian.png"></center>
@@ -685,50 +661,6 @@ to our EMI perturbations in the region around the target obstacle.
     </figure>
 </div>
 </div>
-<h3 class="card-subhead">Object Creation Evaluation</h3>
-<div class="flex-row">
-    <p>
-	<br>
-        We observe that the perturbations induce False Positives (FP) in the object detection results. To measure the effect, we synthesize both sinusoidal and random perturbations in the entire front view of the point cloud (80◦) at 70 dB gain over the validation set of the KITTI dataset (3769 scenes). We then evaluate the number of fake obstacles induced by the perturbations in the form of FPs and report the recall and precision values of the model with the IEMI perturbations. We observe that the sinusoidal
-perturbations induce 8.76 FPs per frame and 7.95 FPs per sample
-over the validation set of the KITTI dataset for PointPillars. For
-PointRCNN, the perturbations induce 4.77 and 4.97 FPs per sam-
-ple. As a result, the precision (resp. recall) of PointRCNN over
-the entire KITTI validation set drops from 0.33 (resp. 0.35) to 0.32
-(resp. 0.30) for random perturbations and to 0.23 (resp. 0.15) for
-sinusoidal perturbations. For Pointpillars, on the other hand, the
-precision drops from 0.447 to 0.444 and 0.408 for random and si-
-nusoidal perturbations, respectively. Meanwhile, the recall drops
-from 0.776 to 0.753 and 0.719 for random and sinusoidal pertur-
-bations, respectively. Note that both models exhibit low precision
-even without any perturbations. Although the perturbation creates
-fake obstacles, precision drops only by a small amount because the
-fake obstacles do not correlate with the false positives perceived in
-the no perturbation case. <br>
-    </p>
-<!--     <div class="col-2 text-center"><video  width="100%" height="100%" controls="controls"/>
-        <source src="vid/sbs_final40.mp4" type="video/mp4"></video>
-    </div>
-    <div class="col-2 text-center" style="padding-top: 3%">
-        <figure style="width: 100%">
-            <br>
-            <img width="75%" height="90%" src="img/moving_target_car_4.PNG">
-        </figure>
-    </div>
-</div>
-    <center>
-        <p>
-            <br>
-            <font size="-1">The above video (left) shows the tracking systems camera view and the corresponding point cloud generated during the attack. The images (right) show the top-view location of the car and obstacle before and after the attack start.</font>
-        </p>
-    </center>
-    <div class="flex-row">
-        <p>
-            <br>
-            Though it is more challenging to attack a moving car with variable speed, we demonstrate that PRA achieves 92.7% success rate for removing over 90% of the target traffic cone (83.6% success rate for removing all the cloud points). The point cloud traces of the experiment are available <strong><a href="https://osf.io/kuhra?view_only=None">here</a></strong> (PCAP format).
-        </p>
-    </div> -->
-
 </section>
 
 <section id="fusion"/>
@@ -739,40 +671,15 @@ the no perturbation case. <br>
         <br>
         For this analysis we randomly select 500 objects
 for each of the cyclist, pedestrian, and car classes from the validation
-set of the KITTI dataset. We synthesize perturbations on the LiDAR
-point cloud as discussed in Section 4.3. Similar to the synthesized
-evaluation in Section 5.1, we set 𝜃 to be the horizontal span of the
-target object and synthesize the perturbations for each individual
-object corresponding to a 70 dB signal gain. We do not in any way
-perturb or alter the input images to the fusion models.
-<br>
-       We consider ODR and CLR as a metric to
+set of the KITTI dataset. We consider ODR and CLR as a metric to
 evaluate the effect of perturbations on sensor fusion models. Here,
 we consider the default IOU thresholds for each model (0.7 for car
 and 0.5 for pedestrian and cyclist obstacles for both models).
-
 <br>
-
+<br>
 The figure below shows the classification rates
 for the two sensor fusion models when injecting the sinusoidal and
-random perturbations for pedestrian, cyclist, and car classes. The
-perturbations drop the ODR below 50% for pedestrian and cyclist
-object classes in AVOD and for pedestrian and cyclist object classes
-in Frustum-ConvNet. The ODR for car object class in AVOD and
-cyclist object class in Frustum-ConvNet show instead robustness
-against the perturbations.
-The CLR for both the models follows a similar trend as ODR
-with a drop below 50% for pedestrian and for cyclist in AVOD. No other scenarios in Frustum-ConvNet show misclassifications,
-indicating that the CLR remains the same as ODR. This happens
-because the region proposals for object detection in the model come
-from camera image data that is not perturbed by our injection. Our
-results show a significant deterioration of the model performance on
-pedestrian and cyclist obstacle classes in AVOD and pedestrian and
-car obstacles in Frustum-ConvNet. Furthermore, the perturbation
-signal generates new obstacles in the sensor fusion models. For
-AVOD, the precision drops by a maximum of 0.43 to 0.33, and the
-recall drops from 0.56 to 0.45. For Frustum-ConvNet, the precision
-drops from 0.69 to 0.52 while the recall from 0.46 to 0.32.
+random perturbations for pedestrian, cyclist, and car classes:
 
        <figure style="margin-top: 10px; margin-bottom: 10px;">
             <center><img width="60%" src="img/fusion_results.png"></center>
@@ -788,23 +695,6 @@ class with synthesized perturbations at 70 dB gain.</font></p>
     </figure>
     </p>
 </div>
-<br>
-<br>
-<div class="flex-row">
-    <p>
-        <br>
-		The simulation show that our removal attack, can lead to severe consequences and endanger the victim AV. Though the obstacle might be perceived again after the attack begins, we observe that the AV can still collide with the obstacle.
-        In the example above, the target pedestrian appears out of the attack region at 8 m from the AV, however, the AV collide with the pedestrian at 26 km/h as it is not able to timely stop. The target car appears out of the attack region at 17 m from the AV however, the AV collide with the vehicle at 16 km/h.
-    </p>
-</div>
-<br>
-<!-- <h3 class="card-subhead">Speed variation</h3>
-<div class="flex-row">
-    <p>
-	Without the attack, the victim AV is expected to accelerate to reach the preset speed (32 km/h) at 46 meters, then uniformly decelerate and stop before reaching the obstacle.
-        In the graphs below we observe the AV's speed change at different attack start conditions for 5 and 10-degree attack angles respectively. Figures (a) and (d) show that, by starting the attack at varying distances from the target obstacle, the attacker can remove the target obstacles for different time periods (based on the size of the obstacles and the attack angles). Figures (b), (c), (e), and (f), show that, though the obstacle is only removed in a limited amount of time, it will cause the AV to accelerate and collide with the obstacles. This is because when the attack starts and the target obstacle is removed, the victim AV will accelerate to reach the preset speed. The graphs also represent the expected AV stopping position in the scenario with no attack, and the position of the obstacle (marked as AV collision).<br>
-        <br>
-    </p> -->
 </section>
 
 <section id="real-world"/>
@@ -816,32 +706,17 @@ class with synthesized perturbations at 70 dB gain.</font></p>
        We further conduct a proof-of-concept experiment to analyze the
 impact of IEMI signal injection in a real-world scenario.
 <br>
-In this experiment, we inject the EMI
-signal into a Velodyne VLP-16 LiDAR with the attacker setup, as
-previously discussed. The antenna was placed at a distance of 0.5
-cm from the victim LiDAR. Since the VLP-16 LiDAR is a 16-channel
-LiDAR, the previously mentioned LiDAR-based detection models cannot
-be used, as they have been trained on the KITTI dataset, which
-contains point cloud samples collected from Velodyne HDL-64E
-(64-channel LiDAR). Hence, for the physical world evaluation, we
+For the physical world evaluation, we
 use PiFiNet, an attentive pillar network-based model trained on
 the JRDB dataset for pedestrian detection. The JRDB Dataset
 is a large-scale multi-modal dataset collected from a social mobile
-manipulator JackRabbot. The dataset provides LiDAR scenes
-from two VLP-16 LiDARs with 54 scenes and 2D and 3D bound-
-ing box annotations for pedestrian objects in full 360<sup>◦</sup>.
+manipulator JackRabbot.
 
 <br>
 
 We test the PiFiNet model under our IEMI injection
 with the target pedestrian obstacle at 2, 4, and 6 m away from the
-victim LiDAR in a static scenario. We observe that beyond 6 m,
-in our real-world setup, the PiFiNet model could not detect the
-target pedestrian obstacle even without any injection. This could
-be because, at far distances, the point cloud formed by VLP-16
-becomes sparse. Considering this, we only analyze near LiDAR
-detection scenarios. We manually annotate the ground truth 3D
-bounding box around the pedestrian obstacle. We increment the
+victim LiDAR in a static scenario. We increment the
 transmitted signal gain in 1 dB intervals and measure the IOU metric
 of the predicted bounding box with respect to ground truth. We
 repeat the experiment for frequencies corresponding to sinusoidal
@@ -850,28 +725,7 @@ and random perturbations. We limit the gain to 25 dB for safety.
 <br>
 
 The figure below shows the results of PiFiNet
-for pedestrian object detection with EMI signal injection. We av-
-erage the IOU values of 25 VLP-16 frames for each pedestrian
-position and signal gain. The random perturbations in the LiDAR
-frame correspond to a sharp drop in IOU for smaller gain values.
-The sinusoidal perturbations lead to a gradual drop in IOU with
-increasing gain, similar to what was observed for PointPillars. We
-hypothesize this similarity is because both PointPillars and PiFiNet
-use a voxel-based method to form voxelized grids of multiple chan-
-nels. The results indicate that at a 2 m target pedestrian distance,
-the IOU of the object drops below 0.5 for only 2 and 14 dB gains in
-random and sinusoidal signal injection, respectively. The average
-IOU at a 2 m pedestrian distance drops from 0.56 to 0.37 with a
-standard deviation (STD) of 0.04 over 20 frames. For 4 m and 6 m
-pedestrian obstacle distances, the average IOU drops from 0.38 and
-0.43 to 0.22 with STD of 0.09 and 0.13. These results confirm that
-signal injection at higher gains leads to a greater IOU drop.
-We also found that the injection induces fake obstacles into real-
-world data. The sinusoidal perturbations create 5.1 FPs per frame,
-while random perturbations create 6.3 FPs per collected frame. This
-reduces the precision (resp. recall) of the model from 0.33 (resp.
-0.68) to 0.16 (resp. 0.56) for sinusoidal perturbations and to 0.13
-(resp. 0.48) for random perturbations.
+for pedestrian object detection with EMI signal injection:
 
  <figure style="margin-top: 10px; margin-bottom: 10px;">
             <center><img width="60%" src="img/outdoor_results_2.png"></center>
