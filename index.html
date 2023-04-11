@@ -442,7 +442,7 @@
     <div class="flex-row">
         <p>
             <br>
-            To determine whether the VLP-16 LiDAR is vulnerable to IEMI, we perform a frequency sweep between 400 MHz and 1 GHz. We found that different frequencies produced different perturbation patterns. We hypothesize that the vulnerability is caused by IEMI-induced voltages surpassing detection thresholds in the LiDAR's ToF circuits.
+            To determine whether the VLP-16 LiDAR is vulnerable to IEMI, we perform a frequency sweep between 400 MHz and 1 GHz. We found that different frequencies produced different perturbation patterns. We hypothesize that the vulnerability is caused by IEMI-induced voltages surpassing detection thresholds in the LiDAR's ToF circuits. 
         </p>
     </div>
 	
@@ -450,7 +450,6 @@
         <center><img width="100%" src="vid/NoAttackGif.gif"></center>
 		<div class="overlayText">
                 <br>
-                <p id="topText"><font size="-1">A Veloview display of an object in an isolated outdoor setting.</font></p>
             </div>
        
     </figure>
@@ -459,7 +458,6 @@
         <center><img width="100%" src="vid/SineGif.gif"></center>
         <div class="overlayText">
                 <br>
-                <p id="topText"><font size="-1">A Veloview display of an object in an isolated outdoor setting with the IEMI injection frequency corresponding to sinusoidal perturbation.</font></p>
             </div>
        
     </figure>
@@ -468,14 +466,14 @@
         <center><img style="padding-top: 0%" width="100%" src="vid/RandGif.gif"></center>
         <div class="overlayText">
                 <br>
-                <p id="topText"><font size="-1">A Veloview display of an object in an isolated outdoor setting with the IEMI injection frequency corresponding to random perturbation.</font></p>
             </div>
        
     </figure>
-    </div>
-        <br>
-		<br>
-	
+</div>
+<div class="overlayText">
+                <center>
+                <p id="topText"><font size="-1">Veloview point cloud data for an obstacle 1 m from the LiDAR with no EMI injection (left), EMI injection at the sinusoidal perturbation frequency (middle), and the EMI injection at the observed random perturbation frequency (right). The antenna is placed to the left of the LiDAR (it does not appear in the point cloud because it is too narrow).
+</font></p>
 	
     </section>
 
