@@ -414,12 +414,12 @@
     </div>
     <p class="my-4">To appear in <a href="https://wisec2023.surrey.ac.uk/">ACM WiSec 2023<br><br></a></p>
 				
-						<!-- <center>			
-						<a href="" class="myButton">Read the Paper</a>
+						<center>			
+                            <a href="https://arxiv.org/pdf/2210.09482.pdf" class="myButton">Read the Paper</a>
 						
 			
 			
-						<a href="#bibtex"  class=" myButton " data-toggle="collapse" role="button"><span class="material-icons"> insert_comment </span>
+						<!-- <a href="#bibtex"  class=" myButton " data-toggle="collapse" role="button"><span class="material-icons"> insert_comment </span>
 					Cite <i class="fa fa-quote-right" aria-hidden="true"></i></a>
 						<div id="bibtex" style="margin-top: 1.5em;" class="collapse" align="left">
 							<pre style="white-space: pre">
@@ -429,8 +429,8 @@
   author={Sri Hrushikesh Varma Bhupathiraju, Jennifer Sheldon, Luke A. Bauer, Vincent Bindschaedler, Takeshi Sugawara, Sara Rampazzi},
   booktitle={16th ACM Conference on Security and Privacy in Wireless and Mobile Networks (ACM WiSec 2023)},
   year={2023}
-}
-</center> -->
+} -->
+</center>
 							</pre>
 						
 				</div>	
@@ -469,11 +469,18 @@
             </div>
        
     </figure>
+<<<<<<< HEAD
+    </div>
+        <!-- <br>
+		<br>
+	 -->
+=======
 </div>
 <div class="overlayText">
                 <center>
                 <p id="topText"><font size="-1">Veloview point cloud data for an obstacle 1 m from the LiDAR with no EMI injection (left), EMI injection at the sinusoidal perturbation frequency (middle), and the EMI injection at the observed random perturbation frequency (right). The antenna is placed to the left of the LiDAR (it does not appear in the point cloud because it is too narrow).
 </font></p>
+>>>>>>> f4e6c6e64282d0486d6c93427d2a39356781cce8
 	
     </section>
 
@@ -585,7 +592,7 @@
         We model perturbations using the empirically observed listed in the previous section. We then synthesize perturbations in the KITTI evaluation dataset to evaluate how perturbations affect PointRCNN and PointPillars. The previous experiments are limited at 25 dB gain due to safety concerns, so we extrapolate the effects of higher gain values. 
 
         <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="60%" src="img/synthesized_ptCloud.png"></center>
+            <center><img width="80%" src="img/synthesized_ptCloud.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -667,6 +674,46 @@ the models:
 <div class="flex-row">
     <p>
         <br>
+<<<<<<< HEAD
+        Camera-LiDAR sensor fusion models extract features from each
+of the sensors used and allow them to complement each other to improve the accuracy of 3D object detection.
+We analyze the impact of IEMI perturbations on two popular camera-LiDAR sensor fusion architectures: <br>
+&emsp;&emsp;1) <strong>Frustum-ConvNet (FC)</strong>: a cascaded semantic-level fusion model that creates
+frustum-level features on the LiDAR point cloud from each region
+proposal from the camera image. <br>
+&emsp;&emsp;2) <strong>AVOD</strong>: <A></A> feature-level fusion model
+that extracts feature maps from RGB images from cameras and BEV
+images of the LiDAR individually and then combines them.
+<br> <br>
+       We consider ODR and CLR as a metric to
+evaluate the effect of perturbations on sensor fusion models. We consider both DIOU thresholds (0.7 for car
+and 0.5 for pedestrian and cyclist obstacles for both models) and WIOU thresholds for each model. For this analysis, we randomly select 500 objects
+for each of the cyclist, pedestrian, and car classes from the KITTI dataset and synthesize the perturbations on LiDAR point clouds.
+The resulting drop in detection (ODR) and classification (CLR) rates are shown below.
+
+<br>
+
+<!-- The figure below shows the classification rates
+for the two sensor fusion models when injecting the sinusoidal and
+random perturbations for pedestrian, cyclist, and car classes. The
+perturbations drop the ODR below 50% for pedestrian and cyclist
+object classes in AVOD and for pedestrian and cyclist object classes
+in Frustum-ConvNet. The ODR for car object class in AVOD and
+cyclist object class in Frustum-ConvNet show instead robustness
+against the perturbations.
+The CLR for both the models follows a similar trend as ODR
+with a drop below 50% for pedestrian and for cyclist in AVOD. No other scenarios in Frustum-ConvNet show misclassifications,
+indicating that the CLR remains the same as ODR. This happens
+because the region proposals for object detection in the model come
+from camera image data that is not perturbed by our injection. Our
+results show a significant deterioration of the model performance on
+pedestrian and cyclist obstacle classes in AVOD and pedestrian and
+car obstacles in Frustum-ConvNet. Furthermore, the perturbation
+signal generates new obstacles in the sensor fusion models. For
+AVOD, the precision drops by a maximum of 0.43 to 0.33, and the
+recall drops from 0.56 to 0.45. For Frustum-ConvNet, the precision
+drops from 0.69 to 0.52 while the recall from 0.46 to 0.32. -->
+=======
         For this analysis we randomly select 500 objects
 for each of the cyclist, pedestrian, and car classes from the validation
 set of the KITTI dataset. We consider ODR and CLR as a metric to
@@ -678,9 +725,10 @@ and 0.5 for pedestrian and cyclist obstacles for both models).
 The figure below shows the classification rates
 for the two sensor fusion models when injecting the sinusoidal and
 random perturbations for pedestrian, cyclist, and car classes:
+>>>>>>> f4e6c6e64282d0486d6c93427d2a39356781cce8
 
        <figure style="margin-top: 10px; margin-bottom: 10px;">
-            <center><img width="60%" src="img/fusion_results.png"></center>
+            <center><img width="70%" src="img/fusion_results.png"></center>
         <div class="overlayText">
                 <br>
                 <center>
@@ -693,15 +741,32 @@ class with synthesized perturbations at 70 dB gain.</font></p>
     </figure>
     </p>
 </div>
+<<<<<<< HEAD
+
+
+<!-- <h3 class="card-subhead">Speed variation</h3>
+<div class="flex-row">
+    <p>
+	Without the attack, the victim AV is expected to accelerate to reach the preset speed (32 km/h) at 46 meters, then uniformly decelerate and stop before reaching the obstacle.
+        In the graphs below we observe the AV's speed change at different attack start conditions for 5 and 10-degree attack angles respectively. Figures (a) and (d) show that, by starting the attack at varying distances from the target obstacle, the attacker can remove the target obstacles for different time periods (based on the size of the obstacles and the attack angles). Figures (b), (c), (e), and (f), show that, though the obstacle is only removed in a limited amount of time, it will cause the AV to accelerate and collide with the obstacles. This is because when the attack starts and the target obstacle is removed, the victim AV will accelerate to reach the preset speed. The graphs also represent the expected AV stopping position in the scenario with no attack, and the position of the obstacle (marked as AV collision).<br>
+        <br>
+    </p> -->
+=======
+>>>>>>> f4e6c6e64282d0486d6c93427d2a39356781cce8
 </section>
 
 <section id="real-world"/>
-<h2>Real-World</h2>
+<h2>Real-World Scenario</h2>
 <hr>
 <div class="flex-row">
     <p>
         <br>
        We further conduct a proof-of-concept experiment to analyze the
+<<<<<<< HEAD
+impact of IEMI signal injection in a real-world scenario. We target pedestrian obstacle at 2, 4, and 6 m away from the
+victim LiDAR in a static scenario.
+
+=======
 impact of IEMI signal injection in a real-world scenario.
 <br>
 For the physical world evaluation, we
@@ -709,6 +774,7 @@ use PiFiNet, an attentive pillar network-based model trained on
 the JRDB dataset for pedestrian detection. The JRDB Dataset
 is a large-scale multi-modal dataset collected from a social mobile
 manipulator JackRabbot.
+>>>>>>> f4e6c6e64282d0486d6c93427d2a39356781cce8
 
 <br>
 
