@@ -673,7 +673,6 @@ the models:
 <div class="flex-row">
     <p>
         <br>
-<<<<<<< HEAD
         Camera-LiDAR sensor fusion models extract features from each
 of the sensors used and allow them to complement each other to improve the accuracy of 3D object detection.
 We analyze the impact of IEMI perturbations on two popular camera-LiDAR sensor fusion architectures: <br>
@@ -711,8 +710,7 @@ car obstacles in Frustum-ConvNet. Furthermore, the perturbation
 signal generates new obstacles in the sensor fusion models. For
 AVOD, the precision drops by a maximum of 0.43 to 0.33, and the
 recall drops from 0.56 to 0.45. For Frustum-ConvNet, the precision
-drops from 0.69 to 0.52 while the recall from 0.46 to 0.32. -->
-=======
+drops from 0.69 to 0.52 while the recall from 0.46 to 0.32. 
         For this analysis we randomly select 500 objects
 for each of the cyclist, pedestrian, and car classes from the validation
 set of the KITTI dataset. We consider ODR and CLR as a metric to
@@ -724,7 +722,6 @@ and 0.5 for pedestrian and cyclist obstacles for both models).
 The figure below shows the classification rates
 for the two sensor fusion models when injecting the sinusoidal and
 random perturbations for pedestrian, cyclist, and car classes:
->>>>>>> f4e6c6e64282d0486d6c93427d2a39356781cce8
 
        <figure style="margin-top: 10px; margin-bottom: 10px;">
             <center><img width="70%" src="img/fusion_results.png"></center>
@@ -740,7 +737,7 @@ class with synthesized perturbations at 70 dB gain.</font></p>
     </figure>
     </p>
 </div>
-<<<<<<< HEAD
+
 
 
 <!-- <h3 class="card-subhead">Speed variation</h3>
@@ -750,8 +747,6 @@ class with synthesized perturbations at 70 dB gain.</font></p>
         In the graphs below we observe the AV's speed change at different attack start conditions for 5 and 10-degree attack angles respectively. Figures (a) and (d) show that, by starting the attack at varying distances from the target obstacle, the attacker can remove the target obstacles for different time periods (based on the size of the obstacles and the attack angles). Figures (b), (c), (e), and (f), show that, though the obstacle is only removed in a limited amount of time, it will cause the AV to accelerate and collide with the obstacles. This is because when the attack starts and the target obstacle is removed, the victim AV will accelerate to reach the preset speed. The graphs also represent the expected AV stopping position in the scenario with no attack, and the position of the obstacle (marked as AV collision).<br>
         <br>
     </p> -->
-=======
->>>>>>> f4e6c6e64282d0486d6c93427d2a39356781cce8
 </section>
 
 <section id="real-world"/>
@@ -761,11 +756,9 @@ class with synthesized perturbations at 70 dB gain.</font></p>
     <p>
         <br>
        We further conduct a proof-of-concept experiment to analyze the
-<<<<<<< HEAD
 impact of IEMI signal injection in a real-world scenario. We target pedestrian obstacle at 2, 4, and 6 m away from the
 victim LiDAR in a static scenario.
 
-=======
 impact of IEMI signal injection in a real-world scenario.
 <br>
 For the physical world evaluation, we
@@ -773,7 +766,6 @@ use PiFiNet, an attentive pillar network-based model trained on
 the JRDB dataset for pedestrian detection. The JRDB Dataset
 is a large-scale multi-modal dataset collected from a social mobile
 manipulator JackRabbot.
->>>>>>> f4e6c6e64282d0486d6c93427d2a39356781cce8
 
 <br>
 
